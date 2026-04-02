@@ -1,0 +1,19 @@
+{
+  "name": "celtic-sounds",
+  "version": "1.0.0",
+  "description": "Max for Live MIDI Instrument device playing 8 Celtic instruments with WARBL wind controller and keyboard support",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --testPathPatterns=tests/ --passWithNoTests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "jest": "^30.3.0"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1"
+  }
+}
