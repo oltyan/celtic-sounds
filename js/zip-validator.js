@@ -30,7 +30,6 @@ function validateInstrumentManifest(manifest) {
 function validateSampleFilenames(filenames, noteRange) {
   const [min, max] = noteRange;
   const presentNotes = new Set();
-  const audioExts = new Set(['.mp3', '.wav', '.ogg']);
 
   for (const f of filenames) {
     const match = f.match(/^(\d+)\.(mp3|wav|ogg)$/i);
@@ -43,17 +42,10 @@ function validateSampleFilenames(filenames, noteRange) {
   const coverage = {};
   const warnings = [];
 
-  // Check for missing samples and determine coverage
-  let gapStart = null;
   for (let note = min; note <= max; note++) {
     if (presentNotes.has(note)) {
       coverage[note] = 'present';
-      if (gapStart !== null) {
-        warnings.push(`Gap from note ${gapStart} to ${note - 1}`);
-        gapStart = null;
-      }
     } else {
-      if (gapStart === null) gapStart = note;
       // Check if within 6 semitones of a present note
       let nearbyExists = false;
       for (let offset = 1; offset <= 6; offset++) {
@@ -63,10 +55,10 @@ function validateSampleFilenames(filenames, noteRange) {
         }
       }
       coverage[note] = nearbyExists ? 'shifted' : 'gap';
+      if (!nearbyExists) {
+        warnings.push(`Note ${note} has no sample within \xB16 semitones`);
+      }
     }
-  }
-  if (gapStart !== null) {
-    warnings.push(`Gap from note ${gapStart} to ${max}`);
   }
 
   if (presentNotes.size === 0) {

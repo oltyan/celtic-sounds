@@ -41,10 +41,12 @@ test('all notes covered returns no warnings', () => {
 });
 
 test('gap returns warning', () => {
-  const range = [60, 65];
-  const files = ['60.mp3', '65.mp3'];
+  // notes 67-73 are >6 semitones from both 60 and 80 → true gap, should warn
+  const range = [60, 80];
+  const files = ['60.mp3', '80.mp3'];
   const r = validateSampleFilenames(files, range);
   expect(r.warnings.length).toBeGreaterThan(0);
+  expect(r.coverage[70]).toBe('gap');
 });
 
 test('no samples at all returns warning', () => {
