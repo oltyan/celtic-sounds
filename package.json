@@ -15,5 +15,8 @@
   },
   "dependencies": {
     "jszip": "^3.10.1"
+  },
+  "jest": {
+    "testMatch": ["**/tests/test-*.js"]
   }
 }
