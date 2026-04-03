@@ -52,7 +52,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 20.0, 212.0, 160.0, 22.0 ],
-                    "text": "js js/note-router.max.js"
+                    "text": "js note-router.max.js"
                 }
             },
             {
@@ -95,7 +95,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 20.0, 308.0, 160.0, 22.0 ],
-                    "text": "js js/expression-handler.max.js"
+                    "text": "js expression-handler.max.js"
                 }
             },
             {
@@ -139,7 +139,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 400.0, 116.0, 145.0, 22.0 ],
-                    "text": "js js/buffer-loader.max.js"
+                    "text": "js buffer-loader.max.js"
                 }
             },
             {
@@ -172,7 +172,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 20.0, 116.0, 145.0, 22.0 ],
-                    "text": "js js/midi-router.max.js"
+                    "text": "js midi-router.max.js"
                 }
             },
             {
@@ -183,7 +183,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 20.0, 148.0, 170.0, 22.0 ],
-                    "text": "js js/drone-controller.max.js"
+                    "text": "js drone-controller.max.js"
                 }
             },
             {
@@ -265,7 +265,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 20.0, 576.0, 130.0, 22.0 ],
-                    "text": "js js/inst-selector.max.js"
+                    "text": "js inst-selector.max.js"
                 }
             },
             {
@@ -356,7 +356,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 20.0, 390.0, 110.0, 22.0 ],
-                    "text": "js js/expr-mode.max.js"
+                    "text": "js expr-mode.max.js"
                 }
             },
             {
@@ -411,7 +411,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 700.0, 200.0, 160.0, 22.0 ],
-                    "text": "js js/warbl-detector.max.js"
+                    "text": "js warbl-detector.max.js"
                 }
             },
             {
@@ -454,7 +454,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 20.0, 308.0, 95.0, 22.0 ],
-                    "text": "convolution~"
+                    "text": "freeverb~"
                 }
             },
             {
@@ -465,7 +465,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "signal" ],
                     "patching_rect": [ 120.0, 308.0, 95.0, 22.0 ],
-                    "text": "convolution~"
+                    "text": "freeverb~"
                 }
             },
             {
@@ -486,7 +486,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 300.0, 276.0, 340.0, 22.0 ],
-                    "text": "read C:/Users/Chris Oltyan/celtic-sounds/impulses/ir_room1.wav"
+                    "text": "0"
                 }
             },
             {
@@ -584,7 +584,7 @@
                     "numoutlets": 1,
                     "outlettype": [ "" ],
                     "patching_rect": [ 20.0, 350.0, 100.0, 22.0 ],
-                    "text": "js js/ir-loader.max.js"
+                    "text": "js ir-loader.max.js"
                 }
             },
             {
@@ -595,7 +595,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "" ],
                     "patching_rect": [ 860.0, 200.0, 145.0, 22.0 ],
-                    "text": "js js/custom-loader.max.js"
+                    "text": "js custom-loader.max.js"
                 }
             },
             {
@@ -870,20 +870,8 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-45", 0 ],
+                    "destination": [ "obj-54", 0 ],
                     "source": [ "obj-46", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-43", 1 ],
-                    "source": [ "obj-45", 0 ]
-                }
-            },
-            {
-                "patchline": {
-                    "destination": [ "obj-44", 1 ],
-                    "source": [ "obj-45", 0 ]
                 }
             },
             {
