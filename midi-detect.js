@@ -1,9 +1,14 @@
 function detectMode(deviceNames, searchString) {
-  const search = (searchString || '').toLowerCase();
+  var search = (searchString || '').toLowerCase();
+  var i, name;
 
   if (search) {
-    const match = deviceNames.find(n => n.toLowerCase().includes(search));
-    if (match) return { mode: 'warbl', deviceName: match };
+    for (i = 0; i < deviceNames.length; i++) {
+      name = deviceNames[i];
+      if (name.toLowerCase().indexOf(search) >= 0) {
+        return { mode: 'warbl', deviceName: name };
+      }
+    }
   }
 
   if (deviceNames.length > 0) {
@@ -13,4 +18,4 @@ function detectMode(deviceNames, searchString) {
   return { mode: 'inactive', deviceName: null };
 }
 
-module.exports = { detectMode };
+module.exports = { detectMode: detectMode };

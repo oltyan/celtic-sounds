@@ -1,4 +1,4 @@
-const INSTRUMENTS = {
+var INSTRUMENTS = {
   tin_whistle: {
     label: 'Tin Whistle',
     sampleDir: 'tin_whistle',
@@ -51,7 +51,7 @@ const INSTRUMENTS = {
     drones: [51],
   },
   sackpipa: {
-    label: 'Säckpipa',
+    label: 'S\u00e4ckpipa',
     sampleDir: 'sackpipa',
     range: [62, 86],
     step: 2,
@@ -64,4 +64,4 @@ function getInstrument(id) {
   return INSTRUMENTS[id];
 }
 
-module.exports = { INSTRUMENTS, getInstrument };
+module.exports = { INSTRUMENTS: INSTRUMENTS, getInstrument: getInstrument };

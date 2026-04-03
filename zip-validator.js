@@ -1,5 +1,5 @@
 function validateInstrumentManifest(manifest) {
-  const errors = [];
+  var errors = [];
   if (!manifest || typeof manifest !== 'object') {
     return { errors: ['instrument.json is not a valid JSON object'] };
   }
@@ -9,63 +9,69 @@ function validateInstrumentManifest(manifest) {
   } else if (
     !Array.isArray(manifest.noteRange) ||
     manifest.noteRange.length !== 2 ||
-    !Number.isInteger(manifest.noteRange[0]) ||
-    !Number.isInteger(manifest.noteRange[1])
+    typeof manifest.noteRange[0] !== 'number' || manifest.noteRange[0] % 1 !== 0 ||
+    typeof manifest.noteRange[1] !== 'number' || manifest.noteRange[1] % 1 !== 0
   ) {
     errors.push('noteRange must be an array of two integers [min, max]');
   } else if (
     manifest.noteRange[0] < 0 || manifest.noteRange[1] > 127 ||
     manifest.noteRange[0] >= manifest.noteRange[1]
   ) {
-    errors.push('noteRange values must be valid MIDI note numbers (0–127) with min < max');
+    errors.push('noteRange values must be valid MIDI note numbers (0-127) with min < max');
   }
   if (manifest.drones === undefined) {
     errors.push('Missing required field: drones');
   } else if (!Array.isArray(manifest.drones)) {
     errors.push('drones must be an array of MIDI note numbers');
   }
-  return { errors };
+  return { errors: errors };
 }
 
 function validateSampleFilenames(filenames, noteRange) {
-  const [min, max] = noteRange;
-  const presentNotes = new Set();
+  var min = noteRange[0];
+  var max = noteRange[1];
+  var presentNotes = {};
+  var presentCount = 0;
+  var i, f, match, note, offset, nearbyExists;
 
-  for (const f of filenames) {
-    const match = f.match(/^(\d+)\.(mp3|wav|ogg)$/i);
+  for (i = 0; i < filenames.length; i++) {
+    f = filenames[i];
+    match = f.match(/^(\d+)\.(mp3|wav|ogg)$/i);
     if (match) {
-      const note = parseInt(match[1], 10);
-      if (note >= min && note <= max) presentNotes.add(note);
+      note = parseInt(match[1], 10);
+      if (note >= min && note <= max && !presentNotes[note]) {
+        presentNotes[note] = true;
+        presentCount++;
+      }
     }
   }
 
-  const coverage = {};
-  const warnings = [];
+  var coverage = {};
+  var warnings = [];
 
-  for (let note = min; note <= max; note++) {
-    if (presentNotes.has(note)) {
+  for (note = min; note <= max; note++) {
+    if (presentNotes[note]) {
       coverage[note] = 'present';
     } else {
-      // Check if within 6 semitones of a present note
-      let nearbyExists = false;
-      for (let offset = 1; offset <= 6; offset++) {
-        if (presentNotes.has(note - offset) || presentNotes.has(note + offset)) {
+      nearbyExists = false;
+      for (offset = 1; offset <= 6; offset++) {
+        if (presentNotes[note - offset] || presentNotes[note + offset]) {
           nearbyExists = true;
           break;
         }
       }
       coverage[note] = nearbyExists ? 'shifted' : 'gap';
       if (!nearbyExists) {
-        warnings.push(`Note ${note} has no sample within \xB16 semitones`);
+        warnings.push('Note ' + note + ' has no sample within \xB16 semitones');
       }
     }
   }
 
-  if (presentNotes.size === 0) {
+  if (presentCount === 0) {
     warnings.push('No audio samples found in the declared note range');
   }
 
-  return { coverage, warnings };
+  return { coverage: coverage, warnings: warnings };
 }
 
-module.exports = { validateInstrumentManifest, validateSampleFilenames };
+module.exports = { validateInstrumentManifest: validateInstrumentManifest, validateSampleFilenames: validateSampleFilenames };

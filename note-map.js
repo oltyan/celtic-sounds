@@ -6,18 +6,19 @@ function findNearestSample(targetNote, availableSamples) {
   if (!availableSamples || availableSamples.length === 0) {
     throw new Error('No samples available');
   }
-  const sorted = [...availableSamples].sort((a, b) => a - b);
-  let nearest = sorted[0];
-  let minDist = Math.abs(targetNote - sorted[0]);
-  for (const s of sorted) {
-    const dist = Math.abs(targetNote - s);
+  var sorted = availableSamples.slice().sort(function(a, b) { return a - b; });
+  var nearest = sorted[0];
+  var minDist = Math.abs(targetNote - sorted[0]);
+  var i, dist;
+  for (i = 0; i < sorted.length; i++) {
+    dist = Math.abs(targetNote - sorted[i]);
     if (dist < minDist) {
       minDist = dist;
-      nearest = s;
+      nearest = sorted[i];
     }
   }
-  const semitones = targetNote - nearest;
-  return { sampleNote: nearest, semitones, rate: rateForPitch(semitones) };
+  var semitones = targetNote - nearest;
+  return { sampleNote: nearest, semitones: semitones, rate: rateForPitch(semitones) };
 }
 
-module.exports = { findNearestSample, rateForPitch };
+module.exports = { findNearestSample: findNearestSample, rateForPitch: rateForPitch };

@@ -1,15 +1,15 @@
-const CC_THRESHOLD = 4;
+var CC_THRESHOLD = 4;
 
 function ccToGain(value) {
   if (value < CC_THRESHOLD) return 0;
-  const normalized = value / 127;
-  return normalized * normalized; // x^2 exponential curve
+  var normalized = value / 127;
+  return normalized * normalized;
 }
 
 function velocityToGain(value) {
   if (value <= 0) return 0;
-  const normalized = value / 127;
+  var normalized = value / 127;
   return normalized * normalized;
 }
 
-module.exports = { ccToGain, velocityToGain, CC_THRESHOLD };
+module.exports = { ccToGain: ccToGain, velocityToGain: velocityToGain, CC_THRESHOLD: CC_THRESHOLD };
