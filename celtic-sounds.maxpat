@@ -84,7 +84,7 @@
                     "numoutlets": 2,
                     "outlettype": [ "", "bang" ],
                     "patching_rect": [ 200.0, 148.0, 136.0, 22.0 ],
-                    "text": "polybuffer~ melodic_buf"
+                    "text": "polybuffer~ melodic_buf 25"
                 }
             },
             {
@@ -728,26 +728,20 @@
             },
             {
                 "patchline": {
-                    "destination": [ "obj-7", 0 ],
+                    "destination": [ "obj-4", 1 ],
                     "source": [ "obj-14", 0 ]
                 }
             },
             {
                 "patchline": {
-                    "destination": [ "obj-4", 1 ],
-                    "source": [ "obj-14", 1 ]
-                }
-            },
-            {
-                "patchline": {
                     "destination": [ "obj-17", 1 ],
-                    "source": [ "obj-14", 1 ]
+                    "source": [ "obj-14", 0 ]
                 }
             },
             {
                 "patchline": {
                     "destination": [ "obj-18", 1 ],
-                    "source": [ "obj-14", 1 ]
+                    "source": [ "obj-14", 0 ]
                 }
             },
             {
