@@ -27,7 +27,7 @@ function anything() {
     bufIndex = 1;
     for (note = range[0]; note <= range[1]; note += step) {
         buf = new Buffer('melodic_buf.' + bufIndex);
-        buf.replace(samplePath + note + '.mp3');
+        buf.read(samplePath + note + '.mp3');
         bufIndex++;
     }
     outlet(0, id);
