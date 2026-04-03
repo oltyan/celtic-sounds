@@ -49,7 +49,11 @@ npm install
 npm test        # runs 61 Jest tests against pure JS modules
 ```
 
-JS files ending in `.max.js` are Max JS objects (ES5, no Node APIs). Pure logic modules in `js/` (no `.max.js` suffix) are tested with Jest.
+JS files ending in `.max.js` are Max JS objects (ES5, no Node APIs). Pure logic modules (no `.max.js` suffix) live in the project root alongside the patcher and are tested with Jest.
+
+### Reverb
+
+This device does not include a built-in reverb. Add a reverb effect after the device in your Ableton signal chain — Ableton's built-in **Reverb** or **Hybrid Reverb** devices work well. The "Reverb Wet" knob on the device acts as an output level trim.
 
 ---
 
