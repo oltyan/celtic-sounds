@@ -64,4 +64,5 @@ function getInstrument(id) {
   return INSTRUMENTS[id];
 }
 
-module.exports = { INSTRUMENTS: INSTRUMENTS, getInstrument: getInstrument };
+exports.INSTRUMENTS = INSTRUMENTS;
+exports.getInstrument = getInstrument;

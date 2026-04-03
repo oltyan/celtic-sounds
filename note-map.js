@@ -21,4 +21,5 @@ function findNearestSample(targetNote, availableSamples) {
   return { sampleNote: nearest, semitones: semitones, rate: rateForPitch(semitones) };
 }
 
-module.exports = { findNearestSample: findNearestSample, rateForPitch: rateForPitch };
+exports.findNearestSample = findNearestSample;
+exports.rateForPitch = rateForPitch;

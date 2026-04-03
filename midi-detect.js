@@ -18,4 +18,4 @@ function detectMode(deviceNames, searchString) {
   return { mode: 'inactive', deviceName: null };
 }
 
-module.exports = { detectMode: detectMode };
+exports.detectMode = detectMode;

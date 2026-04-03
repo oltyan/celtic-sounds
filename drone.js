@@ -46,4 +46,4 @@ DroneController.prototype.setState = function(state) {
   }
 };
 
-module.exports = { DroneController: DroneController };
+exports.DroneController = DroneController;

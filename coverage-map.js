@@ -14,4 +14,4 @@ function buildCoverageGrid(coverage, noteRange) {
   return { rows, min, max };
 }
 
-module.exports = { buildCoverageGrid };
+exports.buildCoverageGrid = buildCoverageGrid;

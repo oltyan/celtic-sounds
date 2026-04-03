@@ -82,4 +82,5 @@ function deserialize(json) {
   return state;
 }
 
-module.exports = { serialize, deserialize };
+exports.serialize = serialize;
+exports.deserialize = deserialize;

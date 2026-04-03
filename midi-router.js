@@ -18,4 +18,4 @@ function routeNote(note, velocity, instrumentId) {
   return { destination: 'melody', note: note, velocity: velocity };
 }
 
-module.exports = { routeNote: routeNote };
+exports.routeNote = routeNote;

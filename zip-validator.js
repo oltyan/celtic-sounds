@@ -74,4 +74,5 @@ function validateSampleFilenames(filenames, noteRange) {
   return { coverage: coverage, warnings: warnings };
 }
 
-module.exports = { validateInstrumentManifest: validateInstrumentManifest, validateSampleFilenames: validateSampleFilenames };
+exports.validateInstrumentManifest = validateInstrumentManifest;
+exports.validateSampleFilenames = validateSampleFilenames;

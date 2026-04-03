@@ -12,4 +12,6 @@ function velocityToGain(value) {
   return normalized * normalized;
 }
 
-module.exports = { ccToGain: ccToGain, velocityToGain: velocityToGain, CC_THRESHOLD: CC_THRESHOLD };
+exports.ccToGain = ccToGain;
+exports.velocityToGain = velocityToGain;
+exports.CC_THRESHOLD = CC_THRESHOLD;
