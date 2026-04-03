@@ -10,9 +10,9 @@ outlets = 2;
 var routeNote = require('midi-router').routeNote;
 var currentId = 'irish_flute';
 
-function anything(id) {
+function anything() {
     if (inlet === 1) {
-        currentId = id;
+        currentId = messagename;
     }
 }
 

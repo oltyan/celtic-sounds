@@ -14,7 +14,8 @@ function bang() {
     // Ignore bangs (e.g. from live.tab initialization)
 }
 
-function anything(id) {
+function anything() {
+    var id = messagename;
     var inst = INSTRUMENTS[id];
     if (!inst) {
         post('Unknown instrument: ' + id + '\n');

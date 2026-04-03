@@ -11,9 +11,9 @@ var velocityToGain = require('expression').velocityToGain;
 
 var mode = 'cc11';
 
-function anything(sel) {
+function anything() {
     if (inlet === 1) {
-        mode = sel;
+        mode = messagename;
     }
 }
 

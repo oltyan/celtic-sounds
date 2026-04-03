@@ -12,8 +12,9 @@ var DroneController = require('drone').DroneController;
 var currentInst = INSTRUMENTS['irish_flute'];
 var controller = new DroneController(currentInst.drones);
 
-function anything(id) {
+function anything() {
     if (inlet !== 1) return;
+    var id = messagename;
     var inst = INSTRUMENTS[id];
     if (inst) {
         currentInst = inst;

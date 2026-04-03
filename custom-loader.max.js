@@ -8,8 +8,9 @@ outlets = 2;
 
 var validateInstrumentManifest = require('zip-validator').validateInstrumentManifest;
 
-function anything(folderPath) {
+function anything() {
     if (inlet !== 0) return;
+    var folderPath = messagename;
     var f = new File(folderPath + '/instrument.json', 'read');
     if (!f.isopen) {
         outlet(0, 'error', 'No instrument.json found');

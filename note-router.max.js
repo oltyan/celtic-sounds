@@ -16,8 +16,9 @@ var i;
 for (i = 0; i < 8; i++) voices[i] = null;
 
 // Inlet 1: set instrument id
-function anything(id) {
+function anything() {
   if (inlet !== 1) return;
+  var id = messagename;
   if (INSTRUMENTS[id]) {
     currentInstrumentId = id;
     outlet(1, 'instrument', id);
