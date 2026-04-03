@@ -1,4 +1,4 @@
-const { validateInstrumentManifest, validateSampleFilenames } = require('../js/zip-validator');
+const { validateInstrumentManifest, validateSampleFilenames } = require('../zip-validator');
 
 // validateInstrumentManifest tests
 test('valid manifest passes', () => {

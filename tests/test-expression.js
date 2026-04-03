@@ -1,4 +1,4 @@
-const { ccToGain, velocityToGain } = require('../js/expression');
+const { ccToGain, velocityToGain } = require('../expression');
 
 test('CC value 0 returns 0', () => {
   expect(ccToGain(0)).toBe(0);

@@ -8,7 +8,7 @@
             "architecture": "x64",
             "modernui": 1
         },
-        "classnamespace": "dsp.mcchain",
+        "classnamespace": "dsp.chain",
         "rect": [ 100.0, 100.0, 960.0, 640.0 ],
         "boxes": [
             {

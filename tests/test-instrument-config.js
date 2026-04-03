@@ -1,4 +1,4 @@
-const { INSTRUMENTS, getInstrument } = require('../js/instrument-config');
+const { INSTRUMENTS, getInstrument } = require('../instrument-config');
 
 test('has 8 instruments', () => {
   expect(Object.keys(INSTRUMENTS).length).toBe(8);

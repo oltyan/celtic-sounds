@@ -1,4 +1,4 @@
-const { routeNote } = require('../js/midi-router');
+const { routeNote } = require('../midi-router');
 
 test('uilleann_pipes MIDI 50 → drone', () => {
   expect(routeNote(50, 100, 'uilleann_pipes').destination).toBe('drone');

@@ -1,4 +1,4 @@
-const { serialize, deserialize } = require('../js/settings');
+const { serialize, deserialize } = require('../settings');
 
 const INSTRUMENT_IDS = [
   'tin_whistle', 'irish_flute', 'uilleann_pipes', 'anglo_concertina',

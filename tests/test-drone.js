@@ -1,4 +1,4 @@
-const { DroneController } = require('../js/drone');
+const { DroneController } = require('../drone');
 
 test('drone starts off', () => {
   const d = new DroneController([51]);

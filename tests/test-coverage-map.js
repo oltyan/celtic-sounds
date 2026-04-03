@@ -1,4 +1,4 @@
-const { buildCoverageGrid } = require('../js/coverage-map');
+const { buildCoverageGrid } = require('../coverage-map');
 
 test('builds three rows for a 24-note range', () => {
   const coverage = {};

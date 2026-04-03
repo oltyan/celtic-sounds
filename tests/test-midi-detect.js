@@ -1,4 +1,4 @@
-const { detectMode } = require('../js/midi-detect');
+const { detectMode } = require('../midi-detect');
 
 test('WARBL found by default substring', () => {
   const result = detectMode(['WARBL v3', 'Launchkey 49'], 'WARBL');

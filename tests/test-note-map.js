@@ -1,4 +1,4 @@
-const { findNearestSample, rateForPitch } = require('../js/note-map');
+const { findNearestSample, rateForPitch } = require('../note-map');
 
 const samples = [57, 60, 64, 67, 71, 74, 77, 81]; // A3, C4, E4, G4, B4, D5, F5, A5
 
