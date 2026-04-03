@@ -17,7 +17,24 @@ function runDetection() {
     outlet(1, result.deviceName || 'No device');
 }
 
+function clear() {
+    if (inlet !== 1) return;
+    deviceNames = [];
+}
+
+function append() {
+    if (inlet !== 1) return;
+    var i;
+    for (i = 0; i < arguments.length; i++) {
+        deviceNames.push(arguments[i]);
+    }
+}
+
 function bang() {
+    if (inlet === 1) {
+        runDetection();
+        return;
+    }
     if (inlet !== 0) return;
     runDetection();
 }

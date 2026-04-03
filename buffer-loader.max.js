@@ -10,6 +10,10 @@ var INSTRUMENTS = require('instrument-config').INSTRUMENTS;
 var patcherDir = this.patcher.filepath.replace(/[\\\/][^\\\/]*$/, '').replace(/\\/g, '/');
 var SAMPLES_ROOT = patcherDir + '/samples/';
 
+function bang() {
+    // Ignore bangs (e.g. from live.tab initialization)
+}
+
 function anything(id) {
     var inst = INSTRUMENTS[id];
     if (!inst) {
