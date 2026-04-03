@@ -6,7 +6,8 @@ inlets = 1;
 outlets = 1;
 
 var IMPULSES = ['room1','room2','room3','chamber1','chamber2','chamber3','hall1','hall2','hall3','church'];
-var BASE = 'C:/Users/Chris Oltyan/celtic-sounds/impulses/ir_';
+var patcherDir = this.patcher.filepath.replace(/[\\\/][^\\\/]*$/, '').replace(/\\/g, '/');
+var BASE = patcherDir + '/impulses/ir_';
 
 function msg_int(idx) {
     if (idx >= 0 && idx < IMPULSES.length) {

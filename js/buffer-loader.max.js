@@ -7,7 +7,8 @@ inlets = 1;
 outlets = 2;
 
 var INSTRUMENTS = require('instrument-config').INSTRUMENTS;
-var SAMPLES_ROOT = 'C:/Users/Chris Oltyan/celtic-sounds/samples/';
+var patcherDir = this.patcher.filepath.replace(/[\\\/][^\\\/]*$/, '').replace(/\\/g, '/');
+var SAMPLES_ROOT = patcherDir + '/samples/';
 
 function anything(id) {
     var inst = INSTRUMENTS[id];

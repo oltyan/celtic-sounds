@@ -11,11 +11,15 @@ var detectMode = require('midi-detect').detectMode;
 
 var deviceNames = [];
 
-function bang() {
-    if (inlet !== 0) return;
+function runDetection() {
     var result = detectMode(deviceNames, 'warbl');
     outlet(0, result.mode);
     outlet(1, result.deviceName || 'No device');
+}
+
+function bang() {
+    if (inlet !== 0) return;
+    runDetection();
 }
 
 function list() {
@@ -25,5 +29,5 @@ function list() {
     for (i = 0; i < arguments.length; i++) {
         deviceNames.push(arguments[i]);
     }
-    bang();
+    runDetection();
 }

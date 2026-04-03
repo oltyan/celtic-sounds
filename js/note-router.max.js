@@ -46,7 +46,6 @@ function noteOn(pitch, velocity) {
 
   outlet(0, 'target', voice + 1);
   outlet(0, 'note', bufName, rate);
-  outlet(0, 'target', voice + 1);
   outlet(0, 1);
 }
 
