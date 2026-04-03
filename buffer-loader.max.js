@@ -23,11 +23,13 @@ function anything() {
     var range = inst.range;
     var step = inst.step;
     var samplePath = SAMPLES_ROOT + inst.sampleDir + '/';
-    var note, bufIndex, buf;
+    var note, bufIndex, bufBox;
     bufIndex = 1;
     for (note = range[0]; note <= range[1]; note += step) {
-        buf = new Buffer('melodic_buf.' + bufIndex);
-        buf.read(samplePath + note + '.mp3');
+        bufBox = this.patcher.getnamed('melodic_buf_' + bufIndex);
+        if (bufBox) {
+            bufBox.message('replace', samplePath + note + '.mp3');
+        }
         bufIndex++;
     }
     outlet(0, id);
